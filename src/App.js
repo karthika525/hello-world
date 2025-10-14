@@ -1,23 +1,21 @@
-import React from 'react';
-import './App.css';
-import image from "./images/reactlogo.png";
+import React from "react";
+import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import image from "./images/dp.jpg"; 
 
 function App() {
-  const userName = "Karthika";
-  console.log("React app started");
+  const name = "Karthika";
+  const description = "A creative web developer passionate about building modern web experiences";
   return (
-    <div className="container mt-5 d-flex justify-content-center">
-    <div className="card shadow text-center" style={{ width: '28rem' }}>
-    <div className="card-body">
-    <h1 style={{ color: "#a60da1ff", fontWeight: "bold" }}> Welcome to React Learning, {userName}</h1>
-    <img src={image} alt="React Logo" className="img-fluid mb-3" style={{ width: "200px" }}/>
-    <img src="https://jelvix.com/wp-content/uploads/2024/09/react-js-examples.png" alt="React Example" className="img-fluid mb-3"/>
-    <p className='bg-primary' style={{ color: "#f4f9fbff" ,fontWeight: "light"}}>This is your first card with images and styles!</p>
-    </div>
+    <div className="container d-flex justify-content-center align-items-center mt-5">
+    <div className="card text-center shadow" style={{ border: "2px solid #5b3adeff", borderRadius: "8px", padding: "20px", backgroundColor: "#f3f3f3ff", width: "22rem" }}>
+    <h2 className="text-primary">{name}</h2>
+    <p className="text-muted">{description}</p>
+    <img src={image} alt="Profile dp" className="img-fluid mb-3 mx-auto d-block" style={{ width: "100px" }}/>
+    <img src="https://jaro-website.s3.ap-south-1.amazonaws.com/2024/03/Features-of-Mern-stack-development-services-You-Should-Know-768x397-1.png" alt="Web technologies overview" className="img-fluid rounded" style={{ maxWidth: "100%" }}/>
     </div>
     </div>
   );
-};
+}
 
 export default App;
