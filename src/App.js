@@ -1,26 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function App() {
-  const favoriteFoods = ["Sandwich","Pizza","Burger","Shawarma"];
-  function showLove(food) {
-    document.getElementById("message").innerText = `I love ${food}!`;
+function Room() {
+  const [isLightOn, setIsLightOn] = useState(false);
+  function changeLight() {
+  if (isLightOn) {
+      setIsLightOn(false);
+   } else {
+      setIsLightOn(true);
+    }
   }
+
+  let roomStatus = "";
+
+  if (isLightOn) {
+    roomStatus = "The room is bright";
+  } else {
+    roomStatus = "The room is dark";
+  }
+
+function LightSwitch({ isLightOn, changeLight }) {
+  let buttonLabel = "";
+
+  if (isLightOn) {
+    buttonLabel = "Turn OFF";
+  } else {
+    buttonLabel = "Turn ON";
+  }
+
   return (
-    <div className="container mt-5 text-center">
-    <h2 className="mb-4 text-success">My Favorite Foods</h2>
-    <ul className="list-group mb-3" style={{ maxWidth: "400px", margin: "0 auto" }}>
-    {favoriteFoods.map((food, index) => (
-    <li key={index} className="list-group-item d-flex justify-content-between align-items-center">{food}
-    <button className="btn btn-primary btn-sm" onClick={() => showLove(food)}> Show Love</button>
-    </li>
-    ))}
-    </ul>
-    <p id="message" className="mt-3 fs-5 text-warning">Select a food that you love!</p>
+    <button className="btn btn-warning text-light mt-3" onClick={changeLight}>
+      {buttonLabel}
+    </button>
+  );
+}
+
+  return (
+    <div className="container text-center mt-5">
+      <h2 className="text-success">{roomStatus}</h2>
+      <LightSwitch isLightOn={isLightOn} changeLight={changeLight} />
     </div>
   );
 }
 
-export default App;
+export default Room;
+
 
 
