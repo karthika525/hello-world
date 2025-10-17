@@ -1,49 +1,44 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import TaskList from "./TaskList";
 
-function Room() {
-  const [isLightOn, setIsLightOn] = useState(false);
-  function changeLight() {
-  if (isLightOn) {
-      setIsLightOn(false);
-   } else {
-      setIsLightOn(true);
+function App() {
+  const [taskName, setTaskName] = useState("");
+  const [tasks, setTasks] = useState([]);
+  const [message, setMessage] = useState("Add a task to get started!");
+  const [bgColor, setBgColor] = useState("white");
+
+  function handleChange(e) {
+    setTaskName(e.target.value);
+  }
+
+  function handleAddTask(e) {
+  e.preventDefault();
+    if (taskName.trim() === "") {
+      return;
+    } else {
+      const newTasks = tasks.concat(taskName);
+      setTasks(newTasks);
+      setMessage("Task added: " + taskName +"!");
+      setBgColor("lightblue");
+      setTaskName("");
     }
   }
 
-  let roomStatus = "";
-
-  if (isLightOn) {
-    roomStatus = "The room is bright";
-  } else {
-    roomStatus = "The room is dark";
-  }
-
-function LightSwitch({ isLightOn, changeLight }) {
-  let buttonLabel = "";
-
-  if (isLightOn) {
-    buttonLabel = "Turn OFF";
-  } else {
-    buttonLabel = "Turn ON";
-  }
-
-  return (
-    <button className="btn btn-warning text-light mt-3" onClick={changeLight}>
-      {buttonLabel}
-    </button>
+return (
+<div className="App container mt-5 p-4" style={{ backgroundColor:bgColor, borderRadius:"12px" }}>
+<div className="card p-4 mb-4 shadow-sm">
+<h2 className="text-center mb-3 text-success">React Task Planner</h2>
+<form onSubmit={handleAddTask} className="d-flex">
+<input type="text" className="form-control me-2" placeholder="Enter a task" value={taskName} onChange={handleChange}/>
+<button type="submit" className="btn btn-primary">Add Task</button>
+</form>
+</div>
+<TaskList tasks={tasks} message={message} />
+</div>
   );
 }
 
-  return (
-    <div className="container text-center mt-5">
-      <h2 className="text-success">{roomStatus}</h2>
-      <LightSwitch isLightOn={isLightOn} changeLight={changeLight} />
-    </div>
-  );
-}
-
-export default Room;
-
-
+export default App; 
 
