@@ -4,15 +4,7 @@ body {
   font-family: "Arial",sans-serif;
   height: 100vh;
 }
-
-button {
-  border-radius: 8px;
-  padding: 10px 20px;
-  background-color: rgb(96, 6, 106);
-  color: rgb(242, 242, 242);
-  font-weight: bolder;
-}
 h1{
-  color: rgba(63, 72, 241, 0.893);
+  color: rgba(9, 12, 66, 0.893);
 }
 
