@@ -1,44 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import TaskList from "./TaskList";
 
 function App() {
-  const [taskName, setTaskName] = useState("");
-  const [tasks, setTasks] = useState([]);
-  const [message, setMessage] = useState("Add a task to get started!");
-  const [bgColor, setBgColor] = useState("white");
-
-  function handleChange(e) {
-    setTaskName(e.target.value);
+const [user, setUser] = useState("Guest");
+useEffect(() => {
+  if (user !== "Guest") {
+  console.log(`User changed to ${user}`);
   }
-
-  function handleAddTask(e) {
-  e.preventDefault();
-    if (taskName.trim() === "") {
-      return;
-    } else {
-      const newTasks = tasks.concat(taskName);
-      setTasks(newTasks);
-      setMessage("Task added: " + taskName +"!");
-      setBgColor("lightblue");
-      setTaskName("");
-    }
-  }
-
+}, [user]);
+function handleLogin() {
+  setUser("Alice");
+}
 return (
-<div className="App container mt-5 p-4" style={{ backgroundColor:bgColor, borderRadius:"12px" }}>
-<div className="card p-4 mb-4 shadow-sm">
-<h2 className="text-center mb-3 text-success">React Task Planner</h2>
-<form onSubmit={handleAddTask} className="d-flex">
-<input type="text" className="form-control me-2" placeholder="Enter a task" value={taskName} onChange={handleChange}/>
-<button type="submit" className="btn btn-primary">Add Task</button>
-</form>
-</div>
-<TaskList tasks={tasks} message={message} />
-</div>
+  <div style={{ textAlign: "center", marginTop: "50px" }}>
+  <h1>Welcome, {user}!</h1>
+  {user === "Guest" && (<button onClick={handleLogin}>Login as Alice</button>)}
+  </div>
   );
 }
 
-export default App; 
+export default App;
+
 

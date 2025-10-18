@@ -1,46 +1,18 @@
 
 body {
-  background-image:linear-gradient(to bottom,rgba(51, 2, 39, 0.8),rgba(255, 88, 58, 0.8));
+  background-image:linear-gradient(to bottom,rgba(223, 220, 235, 0.8),rgba(253, 43, 6, 0.8));
   font-family: "Arial",sans-serif;
   height: 100vh;
 }
 
-.App {
-  max-width: 600px;
-  margin: auto;
-  transition: background-color 0.3s ease; 
-}
-
-form input.form-control {
+button {
   border-radius: 8px;
-  border: 1px solid #d449d2;
+  padding: 10px 20px;
+  background-color: rgb(96, 6, 106);
+  color: rgb(242, 242, 242);
+  font-weight: bolder;
+}
+h1{
+  color: rgba(63, 72, 241, 0.893);
 }
 
-form button {
-  border-radius: 8px;
-}
-
-.card {
-  border-radius: 12px;
-  transition: box-shadow 0.2s ease;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  background: #f3dbea;
-  margin: 6px 0;
-  padding: 8px 12px;
-  border-radius: 6px;
-  text-align: left;
-}
-
-.text-primary {
-  font-weight: 500;
-  color: #0d6efd !important;
-  text-align: center;
-}
