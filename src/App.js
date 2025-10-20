@@ -1,18 +1,12 @@
-import React, { useEffect } from 'react';
+import React from "react";
+import StudentList from "./components/StudentList";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-function App() {
-  useEffect(() => {console.log("Welcome message displayed.");
-  }, []); 
 
+function App() {
   return (
-  <div style={{ textAlign: "center", marginTop: "50px" }}>
-  <h1>Hello, user! Welcome to our site.</h1>
+  <div>
+  <StudentList />
   </div>
   );
 }
-
 export default App;
-
-
-

@@ -1,10 +1,25 @@
 
 body {
-  background-image:linear-gradient(to bottom,rgba(223, 220, 235, 0.8),rgba(253, 43, 6, 0.8));
+  background-image:linear-gradient(to left,rgba(231, 30, 30, 0.8),rgba(144, 13, 135, 0.508));
   font-family: "Arial",sans-serif;
   height: 100vh;
 }
 h1{
-  color: rgba(9, 12, 66, 0.893);
+  color: rgba(56, 20, 189, 0.893);
 }
-
+h2{
+  color: rgba(227, 29, 168, 0.893);
+}
+li{
+  font-weight: lighter;
+  text-shadow: 1px 1px rgba(237, 140, 13, 0.5);
+}
+button{
+  background-color: rgb(146, 59, 134);
+  color: beige;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover{
+  background-color: rgb(103, 23, 95);
+}
